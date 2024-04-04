@@ -162,7 +162,7 @@ const Item = () => {
         </div>
         <div className="note">
           <h3 className="slide">
-            Note :- Contact of sellers are verified.If any inappropriate content
+            Note :- Contact of sellers are verified. If any inappropriate content
             appears then please report spam.
           </h3>
         </div>
