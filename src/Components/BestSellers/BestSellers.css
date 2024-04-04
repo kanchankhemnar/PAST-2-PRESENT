@@ -1,0 +1,39 @@
+.cards{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.item{
+  width: 25rem;
+  height: 20rem;
+  border-radius: 1.5rem;
+  max-width: fit-content;
+  box-shadow: rgb(10, 221, 233) 10px 20px 40px -10px;
+
+}
+.item:hover,
+.item:focus{
+  transform: scale(1.05);
+  cursor: pointer;
+  
+}
+.card-img-top{
+  margin: 3rem;
+  width: 18rem;
+  height: 18rem;
+  /* filter: blur(2.5px); */
+}
+.textOver{
+  color: whitesmoke;
+  margin-top: 100px;
+  position: absolute;
+  top: 90%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-weight: bolder;
+}
+.button{
+  text-decoration: none;
+}
