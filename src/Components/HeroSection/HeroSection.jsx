@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Link } from "react-router-dom";
 // import "./HeroSection.css"
 const HeroSection=()=>{
+  const token = localStorage.getItem('token');
 
   return <>
 <div style={{border:"50px solid white",}}>
@@ -16,7 +17,7 @@ const HeroSection=()=>{
         <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
          <br />
           <button type="button" className="btn btn-outline-primary btn-lg px-4">
-            <Link to="/SellerForm" style={{textDecoration:"none"}}>SELL</Link></button>
+            <Link to={token? "/SellerForm" : "/Login"} style={{textDecoration:"none"}}>SELL</Link></button>
         </div>
       </div>
       <div className="col-lg-4  overflow-hidden shadow-lg">

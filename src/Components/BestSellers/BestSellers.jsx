@@ -81,7 +81,6 @@ const BestSellers = () => {
               className="card-img-top"
               alt="..."
             />
-         
             <h2 className="textOver">
               Calculator</h2>
           </div>

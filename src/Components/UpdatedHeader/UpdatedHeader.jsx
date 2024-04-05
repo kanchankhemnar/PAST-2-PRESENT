@@ -27,7 +27,8 @@ return <>
         </form>
 
         <div className="text-end" style={{display:"flex" ,marginLeft:"20px"}} >
-        <ProfileIcon  /><h5 style={{margin:"5px"}}>Kanchan</h5>
+        {/* <h5 style={{margin:"5px"}}>Kanchan</h5> */}
+        <ProfileIcon  />
          
         </div>
       </div>
