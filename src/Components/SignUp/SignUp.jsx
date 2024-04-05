@@ -41,6 +41,7 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error("Error in registering", error);
+      alert("Enter details correctly");
       setError("Error in registering");
     }
 

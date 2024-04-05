@@ -1,6 +1,51 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Link, NavLink } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+
+// const [error, setError] = useState();
+
 const Header=()=>{
+
+  const token = localStorage.getItem('token');
+  console.log(token);
+
+const handleCLick = async (e) => {if(token) {
+  e.preventDefault();
+  try {
+    // Retrieve token from local storage
+    const token = localStorage.getItem('token');
+
+    // Make a DELETE request to the logout endpoint
+        const response = await axios.delete('https://past-2-present-backend-1.onrender.com/user/logout', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}` // Include the token in the Authorization header
+            }
+        });
+    
+    // Handle successful response
+    if (response.status === 200) {
+                  console.log('Logged out successfully');
+                  //console.log(token)
+                  localStorage.removeItem('token');
+                  console.log(token);
+                  //delete token
+                  // Perform any additional actions upon successful logout
+              } else {
+                  console.error('Logout failed');
+                  // Handle logout failure
+              }
+  } catch (error) {
+    // setError("Logout unsuccessful");
+    console.error('Error during logout:', error);
+    //handle logout
+  }
+}};
+
+
+
+
+
 return <>
 <div style={{width:"100vw"}} className="fixed-top">
 <header className="p-3 text-bg-dark " style={{border:"3px solid white" }}>
@@ -27,9 +72,12 @@ return <>
         </form>
 
         <div className="text-end">
-          <button type="button" className="btn btn-outline-light me-2">
-            <Link to="/Login" style={{textDecoration:"none",color:"white"}} >
+          <button type="button" className="btn btn-outline-light me-2" onClick={handleCLick}>
+            {/* <Link to="/Login" style={{textDecoration:"none",color:"white"}} >
             Login
+            </Link> */}
+            <Link to={{pathname: token ? '/' : '/Login'}} style={{textDecoration:"none",color:"white"}} >
+            {token? 'Log out' : 'Login'}
             </Link>
             </button>
          

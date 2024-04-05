@@ -5,11 +5,14 @@ const capitalizeFirstLetter = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-const SpecificItems = ({ item, key }) => {
+const SpecificItems = ({item, key }) => {
+  const token = localStorage.getItem('token');
+  console.log(token);
   console.log(item);
 
   return (
     <>
+      
       <div className="col">
         <div className="card shadow-sm">
           <img src="src\assets\pen.png" alt="" />
@@ -32,7 +35,7 @@ const SpecificItems = ({ item, key }) => {
                 >
 
                   <Link
-                    to={{pathname: '/ShopItems/'+item.item_id, search: `?id=${item.item_id}`}}
+                    to={{pathname: token ? '/ShopItems/' + item.item_id : '/Login', search: `?id=${item.item_id}`}}
                     // to={'/ShopItems/'+item.item_id}
                     style={{ color: "black", textDecoration: "none" }}
                     
