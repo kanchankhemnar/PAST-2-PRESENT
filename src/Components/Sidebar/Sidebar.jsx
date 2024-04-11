@@ -1,17 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import UpdatedHeader from "../UpdatedHeader/UpdatedHeader";
+// import UpdatedHeader from "../UpdatedHeader/UpdatedHeader";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { AuthContext } from "../ContextAPI/AuthContext";
+import { useContext } from "react";
+
+import Header from "../Header/Header";
 
 const Sidebar = () => {
-  const [selectedTab, setSelectedTab] = useState("My Profile");
+ const { token, logout } = useContext(AuthContext);
+
+
 
   return (
     <>
-      <UpdatedHeader />
+      <Header />
       <div
         className="d-flex-end flex-column flex-shrink-0 p-3 text-bg-dark border border-primary"
-        style={{ marginTop: "80px", width: "280px", height: "100vh" }}
+        style={{ marginTop: "80px", width: "280px" ,position: "fixed",
+        right: 0,
+    }}
       >
         <a
           href="/"
@@ -49,11 +56,12 @@ const Sidebar = () => {
               My Requests
             </NavLink>
           </li>
-          <li className="p-2">
+          <li className="p-2" onClick={logout }>
             <NavLink
-              to="/"
+             to="/"
               className="nav-link text-white"
               activeClassName="active"
+              
             >
               Sign Out
             </NavLink>

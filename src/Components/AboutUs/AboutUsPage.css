@@ -1,0 +1,42 @@
+.paragraph p,
+.paragraph ul {
+  text-align: left;
+  color: white;
+}
+
+.about-us-container {
+
+  background-image: linear-gradient(to right, #080808, #070708, #060607, #050407, #040306, #090512, #0c071a, #0c0a21, #0d0f31, #0d1242, #0f1353, #161364);
+
+
+ 
+  border-radius: 10px; 
+
+}
+.paragraph{
+  display: flexbox;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 70%;
+  width: 70%;
+  margin:5% 15%;
+  
+}
+
+.about-us-container h1 {
+  font-size: 36px;
+  color: #cac4c4;
+  margin-bottom: 20px;
+  text-align: center; /* Centered heading */
+}
+
+.about-us-container p {
+  font-size: 18px;
+  line-height: 1.6; /* Increased line height for better readability */
+  color: #ffffff;
+  margin-bottom: 20px;
+  
+}
+.row{
+  margin:3rem;
+}

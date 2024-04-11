@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./SellerForm.css"
 import axios from "axios";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SellerForm = () => {
@@ -12,31 +12,8 @@ const SellerForm = () => {
   const [discription, setDiscription] = useState();
   const [isAdded, setIsAdded] = useState(false);
   const [error, setError] = useState();
+  const navigate=useNavigate();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post(
-  //       "https://past-2-present-backend-1.onrender.com/user/additem",
-  //       {
-  //         itemName: item_name,
-  //         price: price,
-  //         years_used:years_used,
-  //         discription:discription
-  //       }
-  //     );
-  //     // Handle successful login (e.g., redirect to dashboard)
-  //     // setResponseStatus(response.status);
-  //     if (response.status === 200) {
-  //       setIsAdded(true);
-  //       console.log(response.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Item registration ", error);
-  //     setError("Item not registered");
-  //   }
-
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -63,6 +40,8 @@ const SellerForm = () => {
       if (response.status === 200) {
         setIsAdded(true);
         console.log(response.data.message);
+        alert("Item added successfully");
+        navigate("/MyUploads");
       }
     } catch (error) {
       console.error("Item registration ", error);
@@ -138,16 +117,7 @@ const SellerForm = () => {
   );
 };
 
-const RedirectedComponent = ({ message }) => {
-  return (
-    <div className="container">
-      {/* Redirected component */}
-      <h2 style={{color: "white"}}>Item registered successfully</h2>
-      <p style={{color: "grey"}}>Go back to home</p>
-      <Link to="/" style={{color:"white"}}><h1>Home</h1></Link>
-    </div>
-  );
-};
+
 
 
 export default SellerForm;

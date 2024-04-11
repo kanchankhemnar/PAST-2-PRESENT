@@ -101,9 +101,17 @@ import Footer from "../../Components/Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
+const capitalizeFirstLetter = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 const MyProfile = () => {
   const [myData, setMyData] = useState(null);
   const [error, setError] = useState(null);
+
+  
+  
 
   useEffect(() => {
     const getMyPostData = async () => {
@@ -153,31 +161,43 @@ const MyProfile = () => {
               </svg>
               <br />
 
-              <h2 className="fw-normal mt-4">{myData.user_name}</h2>
+              <h2 className="fw-normal mt-4"> {capitalizeFirstLetter(myData.user_name)}</h2>
               <br />
 
-              <p className="lead para">
-                <h5>Name: </h5>
-                {" "+myData.user_name}
+              <p className="lead para ">
+              <pre className="d-flex">
+
+                <h5>Name : </h5>
+                {capitalizeFirstLetter(myData.user_name)}
+              </pre>
               </p>
               <p className="lead para">
-                <h5>Registration id: </h5>
-                {" "+myData.reg_no}
+                <pre className="d-flex">
+
+                <h5>Registration id : </h5>
+                  {myData.reg_no}
+                </pre>
               </p>
               <p className="lead para">
-                <h5>Mobile: </h5>
-                {" "+myData.phone_no}
+              <pre className="d-flex">
+
+                <h5>Mobile : </h5>
+                {myData.phone_no}
+              </pre>
               </p>
               <p className="lead para">
-                <h5>Email: </h5>
-                {" "+myData.email}
+              <pre className="d-flex">
+                <h5>Email : </h5>
+                {myData.email}
+              </pre>
+                
               </p>
 
-              {/* <p>
+              <p>
                 <a className="btn btn-primary" href="#">
                   Update »
                 </a>
-              </p> */}
+              </p>
             </div>
           </div>
           <div style={{ marginLeft: "15%" }}>

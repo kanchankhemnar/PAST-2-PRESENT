@@ -1,25 +1,35 @@
 import React from "react";
-import "./RequestItem.css";
+
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+
 
 const RequestItem = () => {
-  // Sample data for demonstration
+  
   const requests = [];
 
   return (
-    <div className="request-container">
-      <h1>Request New Item</h1>
-      <div className="request-list">
+    <>    <Header/>
+    <div className="container " >
+      <h1 style={{margin:"10%",color:"white"}}>Current Requests </h1>
+      <div className="request-list" style={{color:"white"}}>
         {requests.length === 0 ? (
-          <p className="no-request">Currently no requests available!!!</p>
+          <h5 >There are no current requests.</h5>
         ) : (
           requests.map((request, index) => (
             <div key={index} className="request-item">
-              {/* Render each request item */}
+           
             </div>
           ))
         )}
       </div>
     </div>
+    <div style={{marginTop:"25vh"}}>
+
+    <Footer/>
+    </div>
+    </>
+
   );
 };
 

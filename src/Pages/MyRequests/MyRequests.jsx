@@ -9,10 +9,10 @@ const MyRequests = () => {
         <div style={{display:"flex",backgroundColor:"white"}}>
         <div style={{width:"100%",height:"100%",marginTop:"150px",marginLeft:"400px"}}>
           <div
-            className="modal modal-sheet position-static d-block  p-4 py-md-5 "
+            className="modal modal-sheet position-static d-block  p-5 py-md-5 "
             tabindex="-1"
             role="dialog"
-            id="modalSheet"
+           
           >
             <div className="modal-dialog shadow" role="document">
               <div className="modal-content rounded-4 shadow">
@@ -48,7 +48,10 @@ const MyRequests = () => {
           <Sidebar />
         </div>
         </div>
+        <div>
+
         <Footer />
+        </div>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const MyUploads=()=>{
 
-  const [myData, setMyData] = useState();
+  const [myData, setMyData] = useState([]);
   const [error, setIsError] = useState();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const MyUploads=()=>{
     <div className="container">
 
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      {
+      { myData.length === 0 ?  <h1 style={{width:"70vw",marginBottom:"68vh",marginLeft:"700px",backgroundColor:"white",marginTop:"2rem"}}>You have no uploads</h1>:
               myData.map((item,i)=>( 
               <RandomItem item={myData[i]} key={i} />))
               }
@@ -60,8 +60,12 @@ const MyUploads=()=>{
 
 <Sidebar/>
 </div>)}
+<div >
+  {  }
+
 
 <Footer/>
+</div>
   </>
 }
 export default MyUploads;

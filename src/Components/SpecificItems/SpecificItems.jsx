@@ -43,15 +43,7 @@ const SpecificItems = ({item, key }) => {
                     View
                   </Link>
 
-                  {/* dont use below syntax */}
-                  {/* <Link to={{
-                      pathname: '/ShopItems',
-                      state: { item }
-                    }}
-                    style={{color:"black",textDecoration:"none"}}
-      >
-        View
-      </Link> */}
+                  
                 </button>
               </div>
             </div>

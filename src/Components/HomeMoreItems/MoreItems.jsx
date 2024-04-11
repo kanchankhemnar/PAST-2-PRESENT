@@ -25,12 +25,18 @@ const MoreItems=()=>{
 
     getMyPostData();
   }, []);
-//let array=[0,1,2,3,4,5,6,7,8,9,10,11];
+
   return <>
-  <div>
-    <div className="album py-5 bg-body-tertiary">
-      <div className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div >
+    <div className="album py-5  " style={{marginTop:"20px"}}>
+      
+
+      <center className="  " >
+      <h1 style={{color:"white",marginBottom:"50px"}}>More Items </h1>
+      </center>
+      
+      <div className="container ">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 shadow">
               {
               myData.map((item,i)=>( 
               <SpecificItems item={myData[i]} key={i} />))

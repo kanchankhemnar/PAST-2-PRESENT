@@ -3,7 +3,9 @@ import "./SignUp.css"
 import Redirect, { useState, useEffect } from "react";
 import axios from "axios";
 import "../LoginForm/redirect.css"
-import { Link, redirect } from "react-router-dom";
+
+import {useNavigate}  from "react-router-dom";
+
 
 const SignUp = () => {
   const [name, setName] = useState();
@@ -16,6 +18,7 @@ const SignUp = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState();
 
+  const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -38,6 +41,8 @@ const SignUp = () => {
         localStorage.setItem("token", token); // Store token in local storage
         setLoggedIn(true);
         console.log(token);
+        alert("registration successfull");
+        navigate("/MyProfile");
       }
     } catch (error) {
       console.error("Error in registering", error);
@@ -47,13 +52,9 @@ const SignUp = () => {
 
   };
 
-  if (loggedIn) {
-    return <RedirectedComponent />;
-  }
-
 
   return (
-    <div className='form2' style={{ backgroundImage: 'linear-gradient(to right, #080808, #070708, #060607, #050407, #040306, #090512, #0c071a, #0c0a21, #0d0f31, #0d1242, #0f1353, #161364)'}}>
+    <div className='form2' style={{background:"white"}}>
       {/* <img id='checkout' src={Checkout} alt="" /> */}
       {/* <h3>Home &lt; Sell</h3> */}
       <div className="container2" >
@@ -135,15 +136,6 @@ const SignUp = () => {
   )
 }
 
-const RedirectedComponent = ({ message }) => {
-  return (
-    <div className="container">
-      {/* Redirected component */}
-      <h2 style={{color: "white"}}>Registered successfully</h2>
-      <p style={{color: "grey"}}>Go back to home</p>
-      <Link to="/" style={{color:"white"}}><h1>Home</h1></Link>
-    </div>
-  );
-};
+
 
 export default SignUp;
